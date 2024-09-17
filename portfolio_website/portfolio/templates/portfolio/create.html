@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %} 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Portfolio</title>
+    <link rel="stylesheet" href="{% static 'portfolio/updateStyle.css' %}">
+</head>
+<body>
+    <!-- 상단바 -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'portfolio_main' %}">포트폴리오</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>프로젝트 추가</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ profile_form.as_p }}
+            {{ project_form.as_p }}
+            <input type="submit" value="저장">
+        </form>
+    </div>
+</body>
+</html>
